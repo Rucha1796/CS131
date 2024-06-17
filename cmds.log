@@ -1,0 +1,49 @@
+#Section A- Tasks:
+
+# Question 1: Make a directory "a1" in the cs131 repo and change to it.
+mkdir a1
+cd a1
+
+# Question 2: Determine the home directory path.
+echo $HOME
+
+# Question 3: What is your UID?  To what group(s) do you belong?  How did you find out (command used)?
+id
+
+# Question 4: Find files in /proc that contain information about memory and CPUs.
+ls /proc/ | grep mem  
+ls /proc/ | grep cpu 
+
+# Question 5: Use head to check the memory information file.
+head /proc/meminfo
+
+# Question 6: Use head, tail, cat to check the CPU information file.
+head /proc/cpuinfo 
+tail /proc/cpuinfo 
+cat /proc/cpuinfo 
+
+# Question 7: Identify the operating system version from a file in /etc.
+cat /etc/os-release
+
+#Section B - Tasks:
+
+# Question 8: Compute the average amount (use the total amount column) paid by customers who were picked up on May 12, 2019 (2019-05-12)
+cp /datasets/taxidata.tar.gz .
+tar -xzvf taxidata.tar.gz
+grep '2019-05-12' taxidata.csv > filtered_data.csv # Filter records from May 12, 2019, and save them to a new file.
+head filtered_data.csv #check total amount column number.
+cut -d',' -f17 filtered_data.csv > amount.txt # Extract the total amount column from the filtered data.
+total=$(paste -sd+ amount.txt | bc) # Calculate the total amount by summing all entries in the amount.txt file.
+count=$(wc -l < amount.txt) # Count the number of lines in amount.txt.
+average=$(echo "scale=2; $total / $count" | bc) # Calculate the average total amount spent and assign it to a variable.
+echo "Average Total Amount: $average"
+
+
+# Question 9: What was the highest total amount paid by customers who were picked up on May 12, 2019 (2019-05-12)?
+sort -nr amount.txt | head -n1 # Sort the amounts numerically and in reverse order to get the highest amount at the top, then display only the top result.
+
+# Question 10: Among the rides with three or more customers, identify the 10 most popular dropoff locations in the month of May 2019.
+grep -E '^[^,]*,[^,]*,[^,]*,[3-9]+\.0,' 2019-05.csv > filtered_rides.csv # Filter rides with three or more customers from the May 2019 CSV file and save them to a new file.
+cut -d',' -f9 filtered_rides.csv > dropoff_locations.txt # Extract the 9th column, which contains dropoff locations, from the filtered data.
+sort dropoff_locations.txt | uniq -c | sort -nr | head -n 10 # Sort the dropoff locations, count each unique entry, sort these counts in reverse numerical order, and display the top 10.
+
