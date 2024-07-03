@@ -1,0 +1,46 @@
+# Output for Question 1: Confirming creation and navigation to directory "a1.
+Directory 'a1' created and entered successfully.
+
+# Output for Question 2: Home directory path.
+mnt/scratch/ruchasu24
+
+# Output for Question 3: UID and groups the user belongs to.
+uid=1250(ruchasu24) gid=1251(ruchasu24) groups=1251(ruchasu24)
+
+# Output for Question 4: Files in /proc that contain information about memory and CPUs.
+iomem
+meminfo
+cpuinfo #output for the command ls/proc/ | grep cpu
+# meminfo and cpuinfo files in /proc directory contain system memory and CPU details, respectively.
+
+# Output for Question 5: First few lines of the memory information from /proc/meminfo.
+MemTotal:       73080640 kB
+
+# Output for Question 6: Information about CPUs from /proc/cpuinfo.
+processor	: 255
+cpu		: POWER8 (architected), altivec supported
+clock		: 3425.000000MHz
+3.425 GHz.
+
+# Output for Question 7: Operating system version from /etc/os-release.
+NAME="Red Hat Enterprise Linux"
+VERSION="8.6 (Ootpa)"
+
+# Output for Question 8: Average total amount paid on May 12, 2019.
+Average Total Amount: 18.66
+
+# Output for Question 9: Highest total amount paid on May 12, 2019.
+460.04
+
+# Output for Question 10: 10 most popular dropoff locations in May 2019 for rides with three or more customers.
+39909 236.0
+  37140 237.0
+  36990 161.0
+  33678 230.0
+  28506 170.0
+  27895 162.0
+  27485 48.0
+  26782 142.0
+  25051 239.0
+  24609 234.0
+
