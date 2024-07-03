@@ -22,7 +22,7 @@ Ensure your resume files are named in the format: `FirstNameLastName_RoleName_Co
 
 To run the script, use the following command format:
 ```
-./resume_organiser.sh <directory to monitor> <pattern> <base> <path> <subdirectory>
+./resume_organiser.sh <directory to monitor> <pattern> <basepath> <subdirectory>
 ```
 
 Here is what each argument mean: 
