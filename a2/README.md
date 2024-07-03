@@ -18,7 +18,7 @@ This command is handy for individuals applying to multiple job positions, especi
 - Desiring a quick and efficient way to manage many customized resume files.
 
 ## How you can use this command
-Ensure your resume files are named in the format: `FirstNameLastName_RoleName_Company_Resume.pdf.`
+Ensure your resume files are named in the format: `FirstNameLastName_RoleName_Company_Resume.pdf`
 
 To run the script, use the following command format:
 ```
