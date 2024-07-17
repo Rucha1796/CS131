@@ -1,0 +1,23 @@
+# sed tasks
+
+#Input 1)
+sed -n '/^1\.0,/p' 2019-10.csv > vendor2.csv
+wc vendor2.csv > a3.txt
+
+#input 2)
+sed 's/[:"-]//g' 2019-10.csv > no-separators.csv
+head -10 no-separators.csv >> a3.txt
+
+input 3)
+sed 's/\([0-9]\+\)\.[0-9]\+/\1/g' no-separators.csv > no-fractions.csv
+head -10 no-fractions.csv >> a3.txt
+
+# awk tasks
+
+#input 4) 
+awk -F, 'BEGIN { OFS = " " }
+$17 >= 10.0 { tip[$14]++ }
+END { for (t in tip) print t, tip[t] }' 2019-10.csv > results.txt
+
+#input 5)
+sort -k2,2nr results.txt | head -n 5 >> a3.txt 
